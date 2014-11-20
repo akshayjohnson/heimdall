@@ -2,8 +2,21 @@
 # This file will be sourced at the end of bashrc
 ##
 
+export EDITOR="vi"
+
+# change the prompt
+PS1=" [ \w ]\n$ "
+
+# Useful aliases
+alias gs="git status"
+alias gc="git commit --verbose"
+alias gcm="git commit -m "
+alias gcam="git commit -am "
+
+alias runserver="./manage.py runserver 0.0.0.0:8080"
+
 export PROJECT_NAME=heimdall
-export PROJECT_HOME=/home/vagrant/$PROJET_NAME
+export PROJECT_HOME=/home/vagrant/$PROJECT_NAME
 
 # setup virtualenv
 export WORKON_HOME=/home/vagrant/.virtualenvs
@@ -12,3 +25,6 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
 workon $PROJECT_NAME
 cd $PROJECT_HOME
+
+# run a git status on ssh
+git status

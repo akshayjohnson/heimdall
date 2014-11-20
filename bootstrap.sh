@@ -5,6 +5,8 @@
 # settings; none of the commands should need root access
 ##
 
+PROJECT_NAME=heimdall
+
 echo -e "\n================================="
 echo "Bootstrapping project $PROJECT_NAME"
 echo -e "=================================\n"

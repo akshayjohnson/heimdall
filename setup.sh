@@ -15,6 +15,12 @@ apt-get update -y
 
 
 echo -e "\n================================="
+echo "Installing System Base requirements"
+echo -e "=================================\n"
+apt-get install -y git tree
+
+
+echo -e "\n================================="
 echo "Installing Python requirements"
 echo -e "=================================\n"
 apt-get install -y build-essential libpq-dev python3-pip
@@ -47,8 +53,7 @@ if [ -f /provisioned ]
 then
     echo "Skipping.. Already done once"
 else
-    cp -f $PROJECT_HOME/_bashrc /home/vagrant
-    echo '. /home/vagrant/_bashrc' >> /home/vagrant/.bashrc
+    echo ". $PROJECT_HOME/_bashrc" >> /home/vagrant/.bashrc
     echo "Linked"
 fi
 
