@@ -52,6 +52,10 @@ ROOT_URLCONF = 'heimdall.urls'
 WSGI_APPLICATION = 'heimdall.wsgi.application'
 
 
+TEMPLATE_DIRS = [
+    BASE_DIR + '/templates',
+]
+
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
