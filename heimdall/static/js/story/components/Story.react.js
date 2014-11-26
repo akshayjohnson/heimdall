@@ -26,6 +26,19 @@ var Story = React.createClass({
         return getStory();
     },
 
+    componentWillMount: function() {
+        StoryStore.addChangeListener(this.storyChanged);
+    },
+
+    componentWillUnmount: function() {
+        StoryStore.removeChangeListener(this.storyChanged);
+    },
+
+    storyChanged: function() {
+        console.log('Story Changed');
+        this.setState(getStory());
+    },
+
     render: function() {
         var self = this;
 

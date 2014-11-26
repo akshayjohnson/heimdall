@@ -22,13 +22,17 @@ var TextView = React.createClass({
         };
     },
 
+    shouldComponentUpdate: function(nextProps, nextState) {
+        var nextHtml = Renderer.toHTML(this.props.model);
+        return nextHtml !== this.getDOMNode().innerHTML;
+    },
+
     render: function() {
         var html = Renderer.toHTML(this.props.model);
 
         if (this.props.edit) {
             return (
                 <p
-                    ref="el"
                     contentEditable="true"
 
                     onKeyPress={this._onKeyPress}
@@ -73,7 +77,7 @@ var TextView = React.createClass({
         // we are using a quick hack by checking length
         // of the serialized JSON, maybe use deep equal
         // checking of objects?
-        var updatedModel = Renderer.fromHTML(this.refs.el.getDOMNode().innerHTML);
+        var updatedModel = Renderer.fromHTML(this.getDOMNode().innerHTML);
 
         var jsonModel = JSON.stringify(this.props.model);
         var jsonDOM = JSON.stringify(updatedModel);

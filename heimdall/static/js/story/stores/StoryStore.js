@@ -1,6 +1,11 @@
 var assign = require('object-assign');
 var EventEmitter = require('events').EventEmitter;
 
+var StoryDispatcher = require('../dispatcher/StoryDispatcher');
+var StoryConstants = require('../constants/StoryConstants');
+
+
+// a test story object
 var _story = {
     gid: 3,
     sections: [
@@ -32,6 +37,52 @@ var _story = {
     ]
 };
 
+
+// helpers
+function _findInArray(array, id) {
+    var i;
+
+    for (i = 0; i < array.length; i++) {
+        if (array[i].id === id) {
+            return i;
+        }
+    }
+
+    return undefined;
+}
+
+
+// methods which handle actions
+
+/**
+ * Updats a text node, assumes model has the text and meta
+ * fields
+ * @param  {number} sectionID section Id
+ * @param  {number} nodeID    node Id within section
+ * @param  {object} model     the model object
+ */
+function updateTextNode(sectionID, nodeID, model) {
+    var sectionIndex = _findInArray(_story.sections, sectionID);
+    if (sectionIndex === undefined) {
+        console.error('Updating Invalid section');
+        console.error(arguments);
+        return;
+    }
+
+    var nodeIndex = _findInArray(_story.sections[sectionIndex].nodes, nodeID);
+    if (nodeIndex === undefined) {
+        console.error('Updating Invalid Node');
+        console.error(arguments);
+        return;
+    }
+
+    var obj = _story.sections[sectionIndex].nodes[nodeIndex];
+    obj.text = model.text;
+    obj.meta = model.meta;
+}
+
+
+// story store instance
 var StoryStore = assign({}, EventEmitter.prototype, {
 
     /**
@@ -40,8 +91,40 @@ var StoryStore = assign({}, EventEmitter.prototype, {
      */
     getSections: function() {
         return _story.sections;
+    },
+
+
+    // event handling
+    emitChange: function() {
+        this.emit('change');
+    },
+
+    addChangeListener: function(callback) {
+        this.on('change', callback);
+    },
+
+    removeChangeListener: function(callback) {
+        this.removeListener('change', callback);
+    }
+});
+
+
+// Handle dispatcher events
+StoryDispatcher.register(function(payload) {
+    var action = payload.action;
+
+    switch(action.actionType) {
+    case StoryConstants.STORY_UPDATE_TEXT:
+        updateTextNode(action.sectionID, action.nodeID, action.model);
+        break;
+
+    default:
+        return true;
     }
 
+    StoryStore.emitChange();
+    return true;
 });
+
 
 module.exports = StoryStore;
