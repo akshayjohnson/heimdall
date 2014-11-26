@@ -129,9 +129,6 @@ var Renderer = {
         // build the correct meta objects out of the tags
         // if all the html tags had the correct start and end
         // tags, then the length would be a multiple of 2.
-        // and if we start from the middle and traverse to both sides
-        // we can build the correct selections provided
-        // all tags are correctly matched
         if (ops.length % 2 !== 0) {
             console.log('Unbalanced HTML Tags: ' + _html);
             return null;
