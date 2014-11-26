@@ -56,6 +56,10 @@ TEMPLATE_DIRS = [
     BASE_DIR + '/templates',
 ]
 
+STATICFILES_DIRS = (
+    BASE_DIR + '/static',
+)
+
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 

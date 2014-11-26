@@ -1,7 +1,10 @@
 *\.pyc
 *\.sublime-*
 node_modules
+
 heimdall/staticfiles
+heimdall/static/build/
+
 *\.sqlite3
 *~
 \.vagrant
