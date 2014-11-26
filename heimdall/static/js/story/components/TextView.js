@@ -10,6 +10,7 @@ var Renderer = require('../helpers/renderer');
 var TextView = React.createClass({
 
     propTypes: {
+        parentID: React.PropTypes.number.isRequired,
         model: React.PropTypes.object,
         edit: React.PropTypes.bool
     },
@@ -22,7 +23,6 @@ var TextView = React.createClass({
     },
 
     render: function() {
-        console.log(this.props);
         var html = Renderer.toHTML(this.props.model);
 
         if (this.props.edit) {
@@ -53,6 +53,17 @@ var TextView = React.createClass({
     _onKeyDown: function(e) {
         console.log('KeyDown');
 
+        // TODO
+        // 1. Start typing on a selection
+        // 2. Backspace/Delete
+        // 3. Paste events
+
+        // delete/backspace must be handled here; there is
+        // no keypress event for it, also when the user clicks
+        // and holds it keydown will fire repeatedly.
+        // however, at this point the actual update has
+        // __not__ happened in the DOM
+
     },
 
     _onKeyUp: function(e) {
@@ -62,15 +73,19 @@ var TextView = React.createClass({
         // we are using a quick hack by checking length
         // of the serialized JSON, maybe use deep equal
         // checking of objects?
-        var jsonModel = JSON.stringify(this.props.model);
-        var jsonDOM = JSON.stringify(Renderer.fromHTML(this.refs.el.getDOMNode().innerHTML));
+        var updatedModel = Renderer.fromHTML(this.refs.el.getDOMNode().innerHTML);
 
-        if (jsonModel.length === jsonDOM.length) {
-            StoryActions.changeStoryText()
-        } else {
-            console.log('Change');
+        var jsonModel = JSON.stringify(this.props.model);
+        var jsonDOM = JSON.stringify(updatedModel);
+
+        if (jsonModel.length !== jsonDOM.length) {
+            StoryActions.updateTextNode(
+                this.props.parentID,
+                this.props.model.id,
+                updatedModel
+            );
         }
-    },
+    }
 
 });
 

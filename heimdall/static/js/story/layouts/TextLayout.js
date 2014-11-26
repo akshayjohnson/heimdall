@@ -40,6 +40,7 @@ var TextLayout = React.createClass({
                 model={node}
                 edit={self.props.edit}
                 key={node.id}
+                parentID={self.props.model.id}
             />);
         });
 
