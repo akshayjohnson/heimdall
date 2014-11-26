@@ -1,11 +1,4 @@
-/** @jsx React.DOM */
-
-var React = require('react');
-
-var TextLayout = require('./story/layouts/TextLayout');
+var StoryTeller = require('./story/StoryTeller');
 
 
-React.render(
-    <TextLayout />,
-    document.getElementById('story')
-);
+StoryTeller.init();

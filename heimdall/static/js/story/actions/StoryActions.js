@@ -12,4 +12,4 @@ var StoryActions = {
     changeStoryText: function(layoutID, componentID, dataObject) {
         console.log(arguments);
     }
-}
+};
