@@ -136,12 +136,10 @@ var Renderer = {
 
         var metaObjs = [];
         var stack = [];
-        for (var i = 0; i < ops.length; i++) {
-            var opA = ops[i];
-
+        ops.forEach(function(opA) {
             if (opA.start) {
                 stack.push(opA);
-                continue;
+                return;
             }
 
             var opB = stack.pop();
@@ -155,7 +153,7 @@ var Renderer = {
                 type: tagToType[opA.tagName],
                 selection: [opB.index, opA.index]
             });
-        }
+        });
 
         if (stack.length !== 0) {
             console.log('Unbalanced HTML Tags: ' + _html);
