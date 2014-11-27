@@ -81,6 +81,29 @@ function updateTextNode(sectionID, nodeID, model) {
     obj.meta = model.meta;
 }
 
+/**
+ * Deletes the given node
+ * @param  {number} sectionID SectionID
+ * @param  {number} nodeID    Node Id
+ */
+function deleteNode(sectionID, nodeID) {
+    var sectionIndex = _findInArray(_story.sections, sectionID);
+    if (sectionIndex === undefined) {
+        console.error('Deleting invalid node');
+        console.error(arguments);
+        return;
+    }
+
+    var nodeIndex = _findInArray(_story.sections[sectionIndex].nodes, nodeID);
+    if (nodeIndex === undefined) {
+        console.error('Deleting invalid node');
+        console.error(arguments);
+        return;
+    }
+
+    _story.sections[sectionIndex].nodes.splice(nodeIndex, 1);
+}
+
 
 // story store instance
 var StoryStore = assign({}, EventEmitter.prototype, {
@@ -116,6 +139,10 @@ StoryDispatcher.register(function(payload) {
     switch(action.actionType) {
     case StoryConstants.STORY_UPDATE_TEXT:
         updateTextNode(action.sectionID, action.nodeID, action.model);
+        break;
+
+    case StoryConstants.DELETE_NODE:
+        deleteNode(action.sectionID, action.nodeID);
         break;
 
     default:

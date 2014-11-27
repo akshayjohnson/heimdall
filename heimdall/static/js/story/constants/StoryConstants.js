@@ -4,8 +4,7 @@
 
 var StoryConstants = {
     STORY_UPDATE_TEXT: 'STORY_UPDATE_TEXT',
-
-    KEY_BACKSPACE: 8
+    DELETE_NODE: 'DELETE_NODE',
 };
 
 module.exports = StoryConstants;

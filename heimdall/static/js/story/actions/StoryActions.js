@@ -16,7 +16,20 @@ var StoryActions = {
             nodeID: nodeID,
             model: model
         });
-    }
+    },
+
+    /**
+     * Deletes the given node
+     * @param  {number} sectionID SectionID
+     * @param  {number} nodeID    NodeID
+     */
+    deleteNode: function(sectionID, nodeID) {
+        StoryDispatcher.handleViewAction({
+            actionType: StoryConstants.DELETE_NODE,
+            sectionID: sectionID,
+            nodeID: nodeID
+        });
+    },
 };
 
 module.exports = StoryActions;

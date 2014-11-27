@@ -3,6 +3,7 @@
 var React = require('react');
 
 var StoryConstants = require('../constants/StoryConstants');
+var KeyCodes = require('../constants/KeyCodes');
 var StoryActions = require('../actions/StoryActions');
 var Renderer = require('../helpers/renderer');
 
@@ -22,11 +23,25 @@ var TextView = React.createClass({
         };
     },
 
+    getInitialState: function() {
+        return {
+            forceRender: false
+        };
+    },
+
     shouldComponentUpdate: function(nextProps, nextState) {
         // we dont allow react to control the component, this
         // results in cursor jumps in the div. However we must
         // be careful that we dont result in inconsistent
         // state between the model and the DOM
+        // we do however let a forceRender to happen by setting
+        // it.
+
+        if (nextState.forceRender) {
+            nextState.forceRender = false;
+            return true;
+        }
+
         return false;
     },
 
@@ -71,6 +86,17 @@ var TextView = React.createClass({
         // however, at this point the actual update has
         // __not__ happened in the DOM
 
+        if (e.keyCode === KeyCodes.BACKSPACE || e.keyCode === KeyCodes.DELETE) {
+            // if the node is empty, delete the node
+            if (this.getDOMNode().textContent.length === 0) {
+                StoryActions.deleteNode(
+                    this.props.parentID,
+                    this.props.model.id
+                );
+
+                e.preventDefault();
+            }
+        }
     },
 
     _onKeyUp: function(e) {

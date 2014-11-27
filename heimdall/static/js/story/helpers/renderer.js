@@ -126,18 +126,17 @@ var Renderer = {
             html = html.slice(tagEnd + 1);
         }
 
-        // build the correct meta objects out of the tags
-        // if all the html tags had the correct start and end
-        // tags, then the length would be a multiple of 2.
-        if (ops.length % 2 !== 0) {
-            console.log('Unbalanced HTML Tags: ' + _html);
-            return null;
-        }
-
         var metaObjs = [];
         var stack = [];
         ops.forEach(function(opA) {
             if (opA.start) {
+                // ignore <br> tags, but a br tag should never have been
+                // inserted into our HTML in the first place
+                if (opA.tagName === 'br') {
+                    console.warn('Ignoring <br> tag');
+                    return;
+                }
+
                 stack.push(opA);
                 return;
             }
