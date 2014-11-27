@@ -23,8 +23,11 @@ var TextView = React.createClass({
     },
 
     shouldComponentUpdate: function(nextProps, nextState) {
-        var nextHtml = Renderer.toHTML(this.props.model);
-        return nextHtml !== this.getDOMNode().innerHTML;
+        // we dont allow react to control the component, this
+        // results in cursor jumps in the div. However we must
+        // be careful that we dont result in inconsistent
+        // state between the model and the DOM
+        return false;
     },
 
     render: function() {
