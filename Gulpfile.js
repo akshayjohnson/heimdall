@@ -14,7 +14,7 @@ gulp.task('watch', function() {
  */
 gulp.task('js', function() {
     gulp.src('heimdall/static/js/app.js')
-        .pipe(browserify({transform: 'reactify'}))
+        .pipe(browserify())
         .pipe(concat('app-build.js'))
         .pipe(gulp.dest('heimdall/static/build/js'));
 });
