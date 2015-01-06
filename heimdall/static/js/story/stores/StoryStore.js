@@ -31,6 +31,12 @@ var _story = {
                             selection: [6, 8]
                         }
                     ]
+                },
+                {
+                    id: 2,
+                    type: 'text',
+                    text: 'This is the second node',
+                    meta: []
                 }
             ]
         }

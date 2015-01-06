@@ -11,25 +11,35 @@ var nodeMap = {
 
 var TextLayout = React.createClass({
     propTypes: {
-        model: React.PropTypes.object,
+        model: React.PropTypes.object.isRequired,
         edit: React.PropTypes.bool,
     },
 
     getDefaultProps: function() {
         return {
-            model: {
-                layout: 'TextLayout',
-                nodes: []
-            },
             edit: false
         };
+    },
+
+    componentWillReceiveProps: function(nextProps) {
+        var model = nextProps.model;
+
+        // do some bookkeeping on the model
+        if (model.nodes.length !== 0) {
+            model.nodes[0].deleteOnEmpty = false;
+        }
+
+        this.setState({model: model});
     },
 
     render: function() {
         var self = this;
 
         var nodes = [];
-        this.props.model.nodes.forEach(function(node) {
+
+        // the state.model is the source of truth which should
+        // be used rather than prop.model
+        this.state.model.nodes.forEach(function(node) {
             var Node = nodeMap[node.type];
             if (Node === undefined) {
                 console.error('Invalid Node: ' + node.type);
@@ -40,7 +50,8 @@ var TextLayout = React.createClass({
                 model={node}
                 edit={self.props.edit}
                 key={node.id}
-                parentID={self.props.model.id}
+                parentID={self.state.model.id}
+                parent={self}
             />);
         });
 

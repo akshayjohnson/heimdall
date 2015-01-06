@@ -34,13 +34,6 @@ var TextView = React.createClass({
         // results in cursor jumps in the div. However we must
         // be careful that we dont result in inconsistent
         // state between the model and the DOM
-        // we do however let a forceRender to happen by setting
-        // it.
-
-        if (nextState.forceRender) {
-            nextState.forceRender = false;
-            return true;
-        }
 
         return false;
     },
@@ -86,8 +79,10 @@ var TextView = React.createClass({
         // however, at this point the actual update has
         // __not__ happened in the DOM
 
-        if (e.keyCode === KeyCodes.BACKSPACE || e.keyCode === KeyCodes.DELETE) {
-            // if the node is empty, delete the node
+        if (e.keyCode === KeyCodes.BACKSPACE) {
+            // if the node is empty, delete the node and request
+            // cursor to be moved to previous text node
+            // of parent
             if (this.getDOMNode().textContent.length === 0) {
                 StoryActions.deleteNode(
                     this.props.parentID,
