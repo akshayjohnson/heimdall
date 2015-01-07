@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var browserify = require('gulp-browserify');
 var concat = require('gulp-concat');
+var argv = require('yargs').argv;
 
 /**
  * Runs build tasks on file changes
@@ -14,7 +15,7 @@ gulp.task('watch', function() {
  */
 gulp.task('js', function() {
     gulp.src('heimdall/static/js/app.js')
-        .pipe(browserify())
+        .pipe(browserify({debug: !argv.production}))
         .pipe(concat('app-build.js'))
         .pipe(gulp.dest('heimdall/static/build/js'));
 });
