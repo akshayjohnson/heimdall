@@ -118,6 +118,57 @@
     }
 }
 
+/**
+ * The waypoints horizontal timeline
+ */
+.waypoints {
+    width: 80%;
+    margin: 0 auto 60px auto;
+    text-align: center;
+
+    ul {
+        border-bottom: 1px solid #dfdfdf;
+    }
+
+    li {
+        display: inline-block;
+        position: relative;
+        width: 75px;
+        height: 100px;
+
+        margin-bottom: -9px;
+
+        p {
+            transform: rotateZ(-45deg);
+            transform-origin: left bottom;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            margin: 0;
+
+            font-size: 15px;
+            padding-left: 5px;
+
+            &:before {
+                content: " ";
+                display: block;
+
+                width: 5px;
+                height: 5px;
+                border-radius: 5px;
+
+                background: #cfcfcf;
+
+                position: absolute;
+                bottom: 10px;
+                left: -15px;
+            }
+        }
+    }
+
+
+}
+
 .story-body {
     @story_width: 650px;
 
@@ -125,7 +176,19 @@
     font-size: 17px;
     line-height: 1.7em;
 
+    .section {
+        width: @story_width;
+        margin: 50px auto;
+    }
+
     .summary {
+        width: 100%;
+
+        .summary-inner {
+            width: @story_width;
+            margin: 0 auto;
+        }
+
         .bike {
             text-align: center;
             margin-bottom: 20px;
@@ -145,11 +208,6 @@
             text-align: center;
             margin-bottom: 20px;
         }
-    }
-
-    .section {
-        width: @story_width;
-        margin: 50px auto;
     }
 
     .photo-wall {
