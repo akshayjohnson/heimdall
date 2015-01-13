@@ -3,26 +3,29 @@
 
     position: relative;
     width: 100%;
-    height: @cover_height;
+    overflow: hidden;
 
     color: @c_text_light;
 
     .image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .image-filter {
         position: absolute;
         left: 0;
         top: 0;
 
-        background: url('/static/img/story/cover.jpg');
-        background-position: center center;
-        height: @cover_height;
-        width: 100%;
-    }
-
-    .image-filter {
         background: linear-gradient(
                         to bottom,
-                        rgba(0,0,0,0) 60%,
-                        rgba(0,0,0,0.5) 100%,
+                        rgba(0,0,0,0) 50%,
+                        rgba(0,0,0,0.4) 100%,
                     );
 
         width: 100%;
@@ -35,7 +38,7 @@
         top: 0;
 
         width: 100%;
-        height: @cover_height;
+        height: 100%;
     }
 
     .cover-content {
@@ -224,8 +227,11 @@
 
     .full-photo {
         width: 100%;
-        height: 690px;
         overflow: hidden;
+
+        img {
+            width: 100%;
+        }
     }
 
     .inline-photo {
@@ -235,7 +241,7 @@
     }
 
     .photo-collage1 {
-        width: 80%;
+        width: 100%;
         text-align: center;
 
         .img-square {
@@ -245,6 +251,7 @@
 
         .wrapper {
             width: 1100px;
+            margin: 0 auto;
         }
 
         .one {
