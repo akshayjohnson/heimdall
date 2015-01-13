@@ -1,0 +1,274 @@
+.story-cover {
+    @cover_height: 700px;
+
+    position: relative;
+    width: 100%;
+    height: @cover_height;
+
+    color: @c_text_light;
+
+    .image {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        background: url('/static/img/story/cover.jpg');
+        background-position: center center;
+        height: @cover_height;
+        width: 100%;
+    }
+
+    .image-filter {
+        background: linear-gradient(
+                        to bottom,
+                        rgba(0,0,0,0) 60%,
+                        rgba(0,0,0,0.5) 100%,
+                    );
+
+        width: 100%;
+        height: 100%;
+    }
+
+    .content {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        width: 100%;
+        height: @cover_height;
+    }
+
+    .cover-content {
+        position: absolute;
+        bottom: 60px;
+        width: 100%;
+    }
+
+    .cover-content-inner {
+        width: @d_page_width;
+        margin: 0 auto;
+    }
+
+    .title {
+        font-size: 72px;
+        font-weight: bold;
+    }
+
+    .user-intro {
+        @user_image: 70px;
+
+        overflow: hidden;
+        color: @c_text_light_d;
+
+        img {
+            float: left;
+            width: @user_image;
+            height: @user_image;
+            border-radius: @user_image;
+        }
+
+        .right {
+            float: left;
+            padding-left: 15px;
+        }
+
+        .name {
+            margin: 8px 0 2px 0;
+        }
+
+        .quote {
+            color: @c_text_light_d_d;
+            width: 400px;
+            line-height: 1.3em;
+        }
+    }
+}
+
+.half-box {
+    @box_height: 100px;
+
+    cursor: default;
+    display: inline-block;
+    min-width: @box_height;
+    height: @box_height;
+
+    text-align: center;
+    overflow: hidden;
+    border-radius: @box_height;
+
+    margin: 10px 20px;
+
+    .top {
+        height: 0.4 * @box_height;
+        line-height: 0.4 * @box_height;
+        font-size: 14px;
+        padding-top: 8px;
+
+        color: #999;
+        background: #dfdfdf;
+    }
+
+    .bottom {
+        font-size: 1.1em;
+        height: 0.6 * @box_height;
+        line-height: 0.6 * @box_height - 10px;
+
+        color: #555;
+        background: #efefef;
+    }
+}
+
+.story-body {
+    @story_width: 650px;
+
+    font-family: 'droid_serif', serif;
+    font-size: 17px;
+    line-height: 1.7em;
+
+    .summary {
+        .bike {
+            text-align: center;
+            margin-bottom: 20px;
+
+            img {
+                display: inline-block;
+                width: 100px;
+                height: 100px;
+            }
+
+            h2 {
+                margin: 10px 0;
+            }
+        }
+
+        .boxes {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    }
+
+    .section {
+        width: @story_width;
+        margin: 50px auto;
+    }
+
+    .photo-wall {
+        width: 100%;
+        text-align: center;
+        background: #f6f6f6;
+        padding: 80px 50px;
+
+        .photo {
+            display: inline-block;
+            margin: 20px;
+        }
+    }
+
+    .full-photo {
+        width: 100%;
+        height: 690px;
+        overflow: hidden;
+    }
+
+    .inline-photo {
+        img {
+            width: @story_width;
+        }
+    }
+
+    .photo-collage1 {
+        width: 80%;
+        text-align: center;
+
+        .img-square {
+            width: 250px;
+            height: 250px;
+        }
+
+        .wrapper {
+            width: 1100px;
+        }
+
+        .one {
+            display: inline-block;
+            overflow: hidden;
+            width: 500px;
+            height: 500px;
+
+            img {
+                height: 500px;
+            }
+        }
+
+        .two {
+            overflow: hidden;
+            display: inline-block;
+            width: 500px;
+            height: 500px;
+            padding-top: 30px;
+
+            img {
+                width: 200px;
+                height: 200px;
+                margin: 10px;
+            }
+        }
+    }
+
+    .end {
+        display: block;
+        width: 450px;
+        margin: 0 auto;
+        border-top: 1px solid #ddd;
+    }
+
+    p {
+        margin: 20px 0;
+    }
+
+    h1 {
+        margin-top: 50px;
+    }
+}
+
+.story-footer {
+    padding: 40px 0;
+    text-align: center;
+
+    .user {
+        @image_width: 120px;
+
+        img {
+            display: block;
+            margin: 0 auto 20px auto;
+
+            width: @image_width;
+            height: @image_width;
+            border-radius: @image_width;
+        }
+    }
+
+    .share {
+        h4 {
+            margin: 30px 0 10px 0;
+            font-size: 20px;
+            color: #c6c6c6;
+        }
+
+        .share-with a {
+            @share_size: 40px;
+
+            display: inline-block;
+            margin-right: 10px;
+            width: @share_size;
+            height: @share_size;
+            border-radius: @share_size;
+            overflow: hidden;
+
+            img {
+                width: @share_size;
+                height: @share_size;
+            }
+        }
+    }
+}

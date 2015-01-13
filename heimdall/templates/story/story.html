@@ -1,7 +1,202 @@
 {% extends "base.html" %}
 
+{% block "extra_css" %}
+<link rel="stylesheet" href="/static/fonts/stylesheet.css">
+{% endblock "extra_css" %}
+
+{% block "body_css_class" %}
+transparent-nav
+{% endblock "body_css_class" %}
+
 {% block "body" %}
 
-<div id="story"></div>
+<div class="story-cover">
+    <div class="image">
+        <div class="image-filter"></div>
+    </div>
+
+    <div class="content">
+        <div class="cover-content">
+            <div class="cover-content-inner">
+                <h1 class="title">The Ghat Ride</h1>
+
+                <div class="user-intro">
+                    <img src="/static/img/story/rider.jpg" alt="">
+
+                    <div class="right">
+                        <h4 class="name">John Mathew</h3>
+                        <p class="quote">An average student, passionate traveler, enthusiastic explorer, not so bad photographer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="story-body">
+    <div class="section summary">
+
+        <div class="bike">
+            <img src="/static/img/story/yamaha.png" alt="">
+            <h2>Yamaha R15</h2>
+        </div>
+
+        <div class="boxes">
+            <div class="half-box">
+                <div class="top">
+                    <span>KM</span>
+                </div>
+                <div class="bottom">
+                    <span>1,200</span>
+                </div>
+            </div>
+            <div class="half-box">
+                <div class="top">
+                    <span>Days</span>
+                </div>
+                <div class="bottom">
+                    <span>3</span>
+                </div>
+            </div>
+        </div>
+
+
+        <p>These pages are on account of the first step I took towards the accomplishment of my dream, the dream of visiting the nooks and corners of this country on a bike. A souvenir of the first longest solo ride I executed. The 1200 Km (approx.) ride included parts of Western Ghats like Nilgiris, Palghat gap, and Idukki, and the beautiful backwaters of Alappey.</p>
+    </div>
+
+    <div class="section photo-wall">
+        <div class="photo">
+            <img src="/static/img/story/thumbnail.png" alt="">
+        </div>
+        <div class="photo">
+            <img src="/static/img/story/thumbnail.png" alt="">
+        </div>
+        <div class="photo">
+            <img src="/static/img/story/thumbnail.png" alt="">
+        </div>
+        <div class="photo">
+            <img src="/static/img/story/thumbnail.png" alt="">
+        </div>
+        <div class="photo">
+            <img src="/static/img/story/thumbnail.png" alt="">
+        </div>
+        <div class="photo">
+            <img src="/static/img/story/thumbnail.png" alt="">
+        </div>
+        <div class="photo">
+            <img src="/static/img/story/thumbnail.png" alt="">
+        </div>
+        <div class="photo">
+            <img src="/static/img/story/thumbnail.png" alt="">
+        </div>
+        <div class="photo">
+            <img src="/static/img/story/thumbnail.png" alt="">
+        </div>
+        <div class="photo">
+            <img src="/static/img/story/thumbnail.png" alt="">
+        </div>
+        <div class="photo">
+            <img src="/static/img/story/thumbnail.png" alt="">
+        </div>
+    </div>
+
+    <div class="section text">
+        <h1>To Ooty</h1>
+        <p>Ooty is at around 150Kms from my hometown and wasn't a tiring ride. People coming from northern sides of Kerala should reach Sulthan Bathery in Wayanad district before deviating to the Ooty highway. The NH 212 will have diversions after Bathery town towards Mysore on the left and Ooty on the right. There are no diversions till Gudalur once you have taken this road from Bathery.</p>
+        <p> Early morning is the best time to ride this road and I travelled this road around 7am. With considerably less number of vehicles and mild fog at this time, the curvy roads will greet you with an awesome ride. Even though you won’t be able to enjoy much of the forest roads (as one might expect while crossing the border through Wayand), the natural beauty of the villages are incredible. Soon after entering Tamil Nadu, you will find beautiful tea estates on both sides and this is one awesome road to go for picnic drives.</p>
+    </div>
+
+    <div class="section full-photo">
+        <img src="/static/img/story/full1.jpg" alt="">
+    </div>
+
+    <div class="section text">
+        <p>Gudalur is a small town with shops and lodges and you can consider having breakfast from around Gudalur because trying to find a place to eat in Ooty is not good idea (Ooty is highly crowded with tourists and restaurants will also experience the same rush. Besides, roaming around inside Ooty on vehicles, in search of restaurants will be the worst thing to do). I had had my breakfast from Wayanad itself and I didn't stop in Gudalur for that reason. Ascend towards Ooty begins right after Gudalur town but the fun of the hairpin roads are spoiled by the potholes on the roads. The Gudalur road is badly maintained and is very uneven. However, you can enjoy the beauty of the Eucalyptus trees on either sides of the road and the striped sunlight coming through the woods is a beautiful scene to remember.</p>
+        <h1>Needle View Point</h1>
+        <p>The first thing to see before entering Ooty is the needle rock viewpoint which is located at around 40Kms before Ooty on the Gudalur – Ooty main road. The view point is around 700mts far from the main road and you have to reach there by walking. The viewpoint is controlled and maintained by tourism department and entry is through paid tickets at Rs.5. One shouldn’t miss the breathtaking view from the viewpoint during an Ooty trip.</p>
+    </div>
+
+    <div class="section inline-photo">
+        <img src="/static/img/story/inline1.jpg" alt="">
+    </div>
+
+    <div class="section text">
+        <h3>Pykara lake</h3>
+        <p>Pykara Lake is right before you enter Ooty town and is another beautiful experience that you shouldn’t miss. There is boating facility and you can roam around the reservoir area in different types of boats.</p>
+    </div>
+
+    <div class="section text">
+        <h1>St. Stephens Church</h1>
+        <p>This is almost a two hundred years old historical church located on a beautiful spot. The church and the nearby cemetery is of great archaeological importance and is worth a visit if you are interested in historical buildings. The view of Ooty town from the church is also wonderful.</p>
+    </div>
+
+    <div class="section photo-collage1">
+        <div class="wrapper">
+            <div class="img-box one">
+                <img src="/static/img/story/col1.jpg" alt="">
+            </div>
+            <div class="img-box two">
+                <img class="img-square" src="/static/img/story/col2.jpg" alt="">
+                <img class="img-square" src="/static/img/story/col3.jpg" alt="">
+                <img class="img-square" src="/static/img/story/col4.jpg" alt="">
+                <img class="img-square" src="/static/img/story/col4.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="section text">
+        <p>I was on a fast run to complete the first phase of my ride and couldn’t spend much time in this heavenly place and I truly wish if I could stay there for some time. However, the best part of Ooty was that I got to meet Kiran Vasudev and eat a chicken burger at his favourite cafe. The trip wouldn’t be so much fun if I hadn't met you bro :) . It was KV who suggested the Kotagiri – Metupalayam road to Coimbatore and I truly owe him for that suggestion. This was the best part of my ride and I truly enjoyed the curvy roads to the maximum. Be a bit alert and cautious about oncoming vehicles and you can throttle up on the curves with full confidence if you do so.</p>
+        <h1>Doddabetta – Kotagiri – Metupalayam – Coimbatore - Palghat</h1>
+        <p>The weather change when you reach the plains is intolerable and it is better to keep riding until your body get accustomed to the heat. There are road side fruit salad sellers on the Metupalayam – Coimbatore road and the tender coconut water and watermelon from those guys is indeed refreshing. There is nothing much to talk about the desert like places I saw for the rest of the ride. The ride from Coimbatore to Palghat is really boring due to the congestion and construction works going on in the road.</p>
+
+        <h1>Kava, Malampuzha</h1>
+        <p>If you are someone who likes to get your toy little dirty, you should definitely go to Kava. This is a plain grassland beside the Malampuzha reservoir with tightly packed sand. This plain is free of stones and you can do off-road adventures on the tightly packed sand with full confidence. Apart from that, you can have a short photo session as well in this place.</p>
+    </div>
+
+    <div class="section full-photo">
+        <img src="/static/img/story/full2.jpg" alt="">
+    </div>
+
+    <div class="section text">
+        <p>Alappey was the last major stop in my ride and I was heading to my grandparent’s place in Idukki. I will share the experiences in Idukki in detail on a different post.</p>
+    </div>
+
+    <div class="section inline-photo">
+        <img src="/static/img/story/inline2.jpg" alt="">
+    </div>
+
+    <div class="end"></div>
+</div>
+
+<div class="story-footer container">
+    <div class="row">
+        <div class="col-md-3 col-md-offset-3 col-xs-12 user">
+            <img src="/static/img/story/rider.jpg" alt="">
+            <div>
+                <h4 class="name">John Mathew</h3>
+                <p class="quote">An average student, passionate traveler, enthusiastic explorer, not so bad photographer.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-xs-12 share">
+            <button type="button" class="btn btn-default btn-lg btn-like">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+            </button>
+
+            <h4>Share With</h5>
+            <div class="share-with">
+                <a href="#">
+                    <img src="/static/img/fb.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="/static/img/twitter.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="/static/img/email.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
